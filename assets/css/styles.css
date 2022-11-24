@@ -18,9 +18,12 @@
 
 html {
     box-sizing: border-box;
+    font-family: helvetica;
 }
 
 *, *:before, *:after {
+    margin: 0;
+    padding: 0;
     box-sizing: inherit;
 }
 
@@ -29,3 +32,4 @@ html {
 body.admin-bar {
     max-height: calc(100vh - 32px);
 }
+

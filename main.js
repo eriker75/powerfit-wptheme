@@ -4,8 +4,14 @@
 // get styles
 import "./assets/css/styles.css"
 
+//get sass
+import "./assets/scss/main.scss"
+
 // get scripts
 import './assets/js/scripts.js'
+
+// get typescript script
+import './assets/ts/tsfile.ts';
 
 /*
 document.querySelector('#app').innerHTML = `

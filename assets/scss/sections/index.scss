@@ -1,0 +1,100 @@
+.powerfig-section {
+    padding: 0 20px;
+    margin: 0 auto;
+    text-align: center;
+    max-width: 1024px;
+    min-height:400px;
+    display: flex;
+    flex-direction: row;
+    gap: 2.5rem;
+
+    @media only screen and (max-width: 1024px) {
+        max-width: 992px;
+        gap: 0;
+        min-height: 350px;
+        gap: 2rem;
+    }
+
+    @media only screen and (max-width: 800px) {
+        max-width: 992px;
+        gap: 0;
+        min-height: 300px;
+        gap: 2rem;
+    }
+
+    @media only screen and (max-width: 768px) {
+        gap: 0;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: auto;
+    }
+
+    & > .block-section{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        flex-grow: 1;
+        width: 50%;
+        text-align: start;
+        font-weight: bold;
+    
+        &:first-of-type{
+            align-items: center;
+            justify-content: center;
+        }
+
+        &:last-of-type{
+            align-items: flex-start;
+            justify-content: start;
+        }
+
+        @media only screen and (max-width: 768px) {
+            height: auto;
+            width: 100%;
+            text-align: center;
+            justify-content: center !important;
+            align-items: center !important;
+        }
+
+        & .woman1{
+            position: absolute;
+            z-index: 999;
+            top: -50px;
+            right: 100px;
+            transform: scale(1.5);
+
+            @media only screen and (max-width: 1024px) {
+                position: static;
+                transform: scale(.7);
+            }
+        }
+
+        & .woman2{
+            position: absolute;
+            z-index: 999;
+            top: -180px;
+            transform: scale(.8);
+
+            @media only screen and (max-width: 800px) {
+                top: -150px;
+            }
+
+            @media only screen and (max-width: 768px) {
+                position: static;
+                transform: scale(.65);
+            }
+        }
+
+        & h3{
+            font-size: clamp(16px,3vw,42px);
+            font-weight: 900;
+            text-align: start;
+
+            @media only screen and (max-width: 768px) {
+                text-align: center;
+                display: block;
+            }
+        }
+    }
+}
