@@ -5,24 +5,28 @@
             'color_two' => '#C4EA3A',
             'text_color'=> '#ffffff',
             'btn_color'=>  '#C4EA3A',
+            'title' => 'ENTRENA COMO LOS CAMPEONES'
         ));?>
         <?php get_template_part('template-parts/category', 'card',array(
             'color_one' => '#ABC15C',
             'color_two' => '#000000',
             'text_color'=> '#000000',
             'btn_color'=>  '#000000',
+            'title' => 'SUPERA TUS LIMITES'
         ));?>
         <?php get_template_part('template-parts/category', 'card',array(
             'color_one' => '#ABC15C',
             'color_two' => '#000000',
             'text_color'=> '#000000',
             'btn_color'=>  '#000000',
+            'title' => 'ENTRENA COMO LOS CAMPEONES'
         ));?>
         <?php get_template_part('template-parts/category', 'card',array(
             'color_one' => '#000000',
             'color_two' => '#C4EA3A',
             'text_color'=> '#ffffff',
             'btn_color'=>  '#C4EA3A',
+            'title' => 'ENTRENA COMO LOS CAMPEONES'
         ));?>
     </div>
 </div> 

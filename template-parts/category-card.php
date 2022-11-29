@@ -4,15 +4,17 @@
             <?php echo $args['color_two'];?> 60%);
 ">
     <div class="grow flex flex-col justify-between" 
-         style="color:<?php echo $args['text_color'];?>;max-width: 60%;
+         style="color:<?php echo $args['text_color'];?>;max-width: 50%;
     ">
-        <div class="grow" style="font-weight: 900;">Contenido de prueba 1</div>
-        <div class="grow">Lorem ipsum dolor, sit amet consectetur adipisicing elit. In tempore nemo nulla dolores distinction.</div>
-        <div class="grow" 
-             style="color:<?php echo $args['btn_color'];?>; font-weight: 900;
-        ">
-             VER MAS
-        </div>
+        <div class="grow" style="font-weight: 900;font-size: clamp(16px,1.6vw,24px);">
+          <?php echo $args['title']?>
+          </div>
+          <div class="grow">Lorem ipsum dolor, sit amet consectetur adipisicing elit. In tempore nemo nulla dolores distinction.</div>
+          <div class="grow" 
+               style="color:<?php echo $args['btn_color'];?>; font-weight: 900;
+          ">
+               VER MAS
+          </div>
     </div>
     <div class="grow flex items-center justify-center">
         <img
