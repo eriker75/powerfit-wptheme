@@ -1,5 +1,6 @@
 <?php get_header() ?>
 
+<?php get_template_part('template-parts/homepage/section', 'hero'); ?>
 <?php get_template_part('template-parts/homepage/section', 'category-products'); ?>
 <?php get_template_part('template-parts/homepage/section', 'latest-products'); ?>
 <?php get_template_part('template-parts/homepage/section', 'increase-resistence'); ?>

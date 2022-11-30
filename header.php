@@ -11,17 +11,25 @@
 </head>
 <body <?php body_class('flex flex-col h-screen') ?>>
 <?php wp_body_open(); ?>
-
-    <header class="flex-0 bg-slate-100 px-4 border shadow-md">
+    <div class="fixed-corner fixed-corner-left"></div>
+    <div class="fixed-corner fixed-corner-right"></div>
+    <header class="flex-0 px-4 shadow-md" style="background-color:#222222;">
         <div class="max-w-screen-lg mx-auto flex justify-between items-center min-h-[40px]">
-            <div class="">
+            <div style="max-width: 300px;">
+                <?php if(get_custom_logo_url()): ?>
+                <a href="<?php echo home_url() ?>">
+                    <img src="<?php echo get_custom_logo_url(); ?>" alt="#">
+                </a>
+                <?php else: ?>
                 <a href="<?php echo home_url() ?>">Logo</a>
+                <?php endif; ?>
             </div>
             <div>
-                <?php echo wp_nav_menu() ?>
+                <?php echo wp_nav_menu(array(
+                    'theme_location' => 'header_menu'
+                )); ?>
             </div>
         </div>
     </header>
-
     <main class="flex-grow">
 

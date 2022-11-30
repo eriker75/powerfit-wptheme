@@ -5,6 +5,10 @@
 @use './layouts/footer.scss' as *;
 @use './layouts/copyright.scss' as *;
 
+body{
+    overflow-x: hidden;
+}
+
 .latest-products{
     padding: 50px 0;
     background-color: #E0F594;
@@ -53,4 +57,23 @@
     &-intern{
         @include clip-top-adapter; 
     }
+}
+
+.fixed-corner{
+    background-color: #E0F594;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: 0;
+
+    &-left{
+        transform: translate(-50%, -50%) rotate(45deg);
+        left: 0;
+    }
+
+    &-right{
+        transform: translate(50%, -50%) rotate(45deg);
+        right: 0;
+    }
+
 }

@@ -68,3 +68,135 @@ function powerfit_add_theme_supports(){
 }
 
 add_action('init','powerfit_add_theme_supports');
+
+
+function get_custom_logo_url()
+{
+    $custom_logo_id = get_theme_mod( 'custom_logo' );
+    $image = wp_get_attachment_image_src( $custom_logo_id , 'full' );
+    return $image[0];
+}
+
+
+if ( ! function_exists( 'mytheme_register_nav_menu' ) ) {
+
+	function mytheme_register_nav_menu(){
+		register_nav_menus( array(
+            'header_menu' => __( 'Main Menu', 'text_domain' ),
+	    	'social_menu' => __( 'Social Menu', 'text_domain' ),
+	    	'footer_menu'  => __( 'Footer Menu', 'text_domain' ),
+		) );
+	}
+	add_action( 'after_setup_theme', 'mytheme_register_nav_menu', 0 );
+}
+
+
+if( !function_exists('powerfit_customizer') ){
+
+    function powerfit_customizer($wp_customize){
+        /*---------------------------------------------------------------------------------------*/
+        // Slider Section
+        $wp_customize->add_section( 
+            "sec_slider", array(
+                "title" 		=> __( "Slider Settings", "fancy-lab"),
+                "description" 	=> __( "Slider Section", "fancy-lab" )
+            )
+        );
+        for ($i = 1; $i <= 5; $i++) {
+            $wp_customize->add_setting(
+                "set_slider_page$i", array(
+                    "type" 				=> "theme_mod",
+                    "default" 			=> "",
+                    "sanitize_callback" => "absint"
+                )
+            );
+            $wp_customize->add_control(
+                "set_slider_page$i", array(
+                    "label" 		=> __( "Set slider page $i", "fancy-lab" ),
+                    "description" 	=> __( "Set slider page $i", "fancy-lab" ),
+                    "section" 		=> "sec_slider",
+                    "type" 			=> "dropdown-pages"
+                )
+            );
+            $wp_customize->add_setting(
+                "set_slider_button_text$i", array(
+                    "type" 				=> "theme_mod",
+                    "default" 			=> "",
+                    "sanitize_callback" => "sanitize_text_field"
+                )
+            );
+            $wp_customize->add_control(
+                "set_slider_button_text$i", array(
+                    "label" 		=> __( "Button Text for Page $i", "fancy-lab" ),
+                    "description" 	=> __( "Button Text for Page $i", "fancy-lab" ),
+                    "section" 		=> "sec_slider",
+                    "type" 			=> "text"
+                )
+            );
+            $wp_customize->add_setting(
+                "set_slider_button_url$i", array(
+                    "type" 				=> "theme_mod",
+                    "default" 			=> "",
+                    "sanitize_callback" => "esc_url_raw"
+                )
+            );
+            $wp_customize->add_control(
+                "set_slider_button_url$i", array(
+                    "label" 		=> __( "URL for Page $i", "fancy-lab" ),
+                    "description" 	=> __( "URL for Page $i", "fancy-lab" ),
+                    "section" 		=> "sec_slider",
+                    "type" 			=> "url"
+                )
+            );
+            $wp_customize->add_setting(
+                "set_slider_title_text$i", array(
+                    "type" 				=> "theme_mod",
+                    "default" 			=> "",
+                    "sanitize_callback" => "sanitize_text_field"
+                )
+            );
+            $wp_customize->add_control(
+                "set_slider_title_text$i", array(
+                    "label" 		=> __( "Title Text for Page $i", "fancy-lab" ),
+                    "description" 	=> __( "Title Text for Page $i", "fancy-lab" ),
+                    "section" 		=> "sec_slider",
+                    "type" 			=> "text"
+                )
+            );
+            $wp_customize->add_setting(
+                "set_slider_content_text$i", array(
+                    "type" 				=> "theme_mod",
+                    "default" 			=> "",
+                    "sanitize_callback" => "sanitize_text_field"
+                )
+            );
+            $wp_customize->add_control(
+                "set_slider_content_text$i", array(
+                    "label" 		=> __( "Content Text for Page $i", "fancy-lab" ),
+                    "description" 	=> __( "Content Text for Page $i", "fancy-lab" ),
+                    "section" 		=> "sec_slider",
+                    "type" 			=> "text"
+                )
+            );
+
+            $wp_customize->add_setting(
+                "set_slider_image_$i", array(
+                    "default" => "",
+                    "type"    => "theme_mod"
+                )
+            );
+    
+            
+            $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 
+                "set_slider_image_$i", array(
+                    "label"             => __("Slider Image #$i", "name-theme"),
+                    "section"           => "sec_slider",
+                    "settings"          => "set_slider_image_$i",
+                    "library_filter" => array( "gif", "jpg", "jpeg", "png", "ico" ),    
+                )
+            ));
+        }
+    }
+
+    add_action( 'customize_register', 'powerfit_customizer' );
+}

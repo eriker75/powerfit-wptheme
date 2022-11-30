@@ -7,6 +7,20 @@
         'orientation' => 100
     )); ?>
     <footer class="main-footer">
+        <div>
+
+        </div>
+        <div>
+            <?php echo wp_nav_menu(array(
+                'theme_location' => 'footer_menu'
+            )); ?>
+        </div>
+        <div>
+
+        </div>
+        <div>
+
+        </div>
     </footer>
     <div class="footer-copyright">
         Copyrigth <?php echo date("Y"); ?> Derecho reservados
